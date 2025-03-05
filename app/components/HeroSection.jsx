@@ -1,11 +1,17 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 
 const HeroSection = () => {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   return (
     <section className="lg:py-16">
       <div className="grid grid-cols-1 sm:grid-cols-12 items-center">
@@ -22,24 +28,26 @@ const HeroSection = () => {
               Hello, I&apos;m{" "}
             </span>
             <br />
-            <TypeAnimation
-              sequence={[
-                "Karun Rayamajhi",
-                1000,
-                "Web Developer",
-                1000,
-                "Mobile Developer",
-                1000,
-                "Full Stack Developer ",
-                1000,
-              ]}
-              wrapper="span"
-              speed={50}
-              repeat={Infinity}
-            />
+            {isMounted && (
+              <TypeAnimation
+                sequence={[
+                  "Karun Rayamajhi",
+                  1000,
+                  "Web Developer",
+                  1000,
+                  "Mobile Developer",
+                  1000,
+                  "Full Stack Developer ",
+                  1000,
+                ]}
+                wrapper="span"
+                speed={50}
+                repeat={Infinity}
+              />
+            )}
           </h1>
           <p className="text-[#ADB7BE] text-base sm:text-lg lg:text-xl mb-6">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum perferendis atque consequatur.
+            I craft seamless digital experiences with clean, scalable code. Passionate about building dynamic web and mobile applications, I bring ideas to life through innovation and creativity.
           </p>
           <div>
             <button className="px-6 py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 text-white cursor-pointer transition duration-300 hover:opacity-80">

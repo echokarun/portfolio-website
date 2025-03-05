@@ -2,7 +2,6 @@
 import dynamic from "next/dynamic";
 import React from "react";
 
-// ✅ Correctly import AnimatedNumbers
 const AnimatedNumbers = dynamic(() => import("react-animated-numbers"), { ssr: false });
 
 const achievementsList = [
@@ -39,6 +38,7 @@ const AchievementsSection = () => {
               <h2 className="text-white text-4xl font-bold flex flex-row">
                 {achievement.prefix ? achievement.prefix : ""}
                 <AnimatedNumbers
+                  key={index} 
                   includeComma
                   animateToNumber={parseInt(achievement.value)}
                   locale="en-US"
